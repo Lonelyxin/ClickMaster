@@ -1,7 +1,6 @@
 package com.diandian.clickmaster;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,10 +10,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.diandian.clickmaster.service.ClickerAccessibilityService;
+import com.diandian.clickmaster.utility.PermissionUtil;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
-        toolbar.getTitle();
-        Log.i("liuxinTest", "toolbar.getTitle(): "+toolbar.getTitle());
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -72,17 +70,18 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.nav_left_days) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_faq) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_after_sale) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.nav_guide) {
+            PermissionUtil.requestForOverlaysPermission(this);
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_about) {
+            PermissionUtil.isAccessibilitySettingsOn(getApplicationContext(), ClickerAccessibilityService.class);
+            PermissionUtil.requestForAccessibilityPermission(this);
 
         }
 
