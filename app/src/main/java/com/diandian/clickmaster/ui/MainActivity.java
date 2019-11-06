@@ -1,4 +1,4 @@
-package com.diandian.clickmaster;
+package com.diandian.clickmaster.ui;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.diandian.clickmaster.R;
 import com.diandian.clickmaster.service.ClickerAccessibilityService;
 import com.diandian.clickmaster.utility.PermissionUtil;
 import com.google.android.material.navigation.NavigationView;
